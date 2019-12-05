@@ -1,0 +1,20 @@
+h2 {
+    margin-left: 100px;
+    color:whitesmoke;
+}
+form{
+    padding-top:20px;
+}
+button {
+    padding:10px 40px;
+}
+ table{
+     margin-left: 1cm;
+     width:100%;   
+ }
+ tbody{
+    border-bottom-style: outset;
+    border-right-style: outset;
+    border-width: 5px;
+    border-color: seashell;
+   }

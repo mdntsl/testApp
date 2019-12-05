@@ -1,0 +1,86 @@
+    <header>
+        <div class="navbar navbar-expand-md  shadow-lg p-3 mb-5 bg-dark ">
+        <div class='col-3'>
+             <h2> <em> My app</em> </h2>
+        </div>
+        <div class="col-9">
+            <img src="../../../favicon.ico" height="50" width="50"  class="rounded float-right">
+
+        </div>
+    </div>
+  
+</header>   
+
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-3  bg-dark rounded " style="height: 200px">
+              <form>
+                <div class="form-group form-group-primary" >
+                    <label  style="color:white;">Input name of repository</label>
+                    <input class="form-control" placeholder="Name" #nameValue><br>
+                    <button class="btn btn-secondary" type="button" (click)="findName(nameValue.value)">Find</button>
+                </div> 
+              </form>
+            </div> 
+          
+          
+        <div class="col-9">
+          <div class="row" >
+            <div class="col-12">
+                <div type="button" class="btn btn-secondary" style="margin-left:1cm; width:100%"  (click) = "isFavorChange()">Favorite repositories</div>
+                <table *ngIf =isFavor class="table shadow-lg p-3 mb-5" >
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Name of repository</th>
+                      <th scope="col">ID</th>
+                      <th scope="col">Owner's name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of favorites;let i = index" >
+                      <th scope="row">{{i+1}}</th>
+                      <td>{{item.name}}</td>
+                      <td>{{item.id}}</td>
+                      <td>{{item.owner.login}}</td> 
+                      
+                    </tr>
+                  
+                  </tbody>
+                </table> 
+            </div>
+          
+          
+          </div><br>
+          <div class="row">
+            <div class="col-12">
+                <table class="table shadow-lg p-3 mb-5"  >
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name of repository</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Owner's name</th>
+                            <th scope="col">Add to favorites</th>
+                          </tr>
+                        </thead>
+                        <tbody *ngIf = isTable> 
+                          <tr *ngFor="let item of result ; let i = index" >
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{item.name}}</td>
+                            <td>{{item.id}}</td>
+                            <td>{{item.owner.login}}</td>
+                            <td><button  class="btn btn-secondary" type="button" (click)="addFavorite(item.id,item)" >Add to favorites</button></td>
+                          </tr>
+                        
+                        </tbody>
+                      </table>
+                    </div>
+                    </div>
+                    </div>          
+
+        </div>
+    
+</div>
+</main>
