@@ -17,7 +17,9 @@ export class MainComponent implements OnInit {
   ngOnInit() {}
 
   findName(value) {
-      this.isTable = !this.isTable;
+    if(!this.isTable) {
+      this.isTable =!this.isTable;
+    }
       fetch(`https://api.github.com/search/repositories?q=${value}`)
        .then(res => res.json())
        .then(res => this.result = res.items)       
